@@ -12,7 +12,8 @@ import { LoaderService } from '../services/loader.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-token !: any
+token !: any;
+
 private loader = inject(LoaderService);
 
 
@@ -22,12 +23,10 @@ private loader = inject(LoaderService);
     if (request.url.includes('auth/login')) {  
     return next.handle(request)
     .pipe(
-      finalize(() => {
-        this.loader.loaderEmitter(false)
-      })
+      finalize(() => this.loader.loaderEmitter(false))
     )
   }
-this.token  = localStorage.getItem('token')
+this.token  = localStorage.getItem('token');
 
     let reqClone = request.clone({
     setHeaders : {
@@ -36,12 +35,9 @@ this.token  = localStorage.getItem('token')
     }
    })
 
-  //  this.loader.loaderEmitter(true);
   return next.handle(reqClone)
   .pipe(
-    finalize(() => {
-      this.loader.loaderEmitter(false)
-    })
+    finalize(() => this.loader.loaderEmitter(false))
   )
 }
 }
