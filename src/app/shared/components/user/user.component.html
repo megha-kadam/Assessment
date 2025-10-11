@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-3">
+        <app-sidenav></app-sidenav>
+    </div>
+    <div class="col-9">
+        <h2>User Page</h2>
+        <input type="text" placeholder="Search User" [formControl]="userSearch" class="form-control mb-3">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Lame Name</th>
+                    <th>Gender</th>
+                    <th>Email Id</th>
+                    <th>Phone Number</th>
+                    <th>Birth Date</th>
+                    <th>Image</th>
+                    <th>Edit</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of filteredUsers">
+                    <td>
+                        {{user.id}}
+                    </td>
+                    <td>
+                        {{user.firstName}}
+                    </td>
+                    <td>
+                        {{user.lastName}}
+                    </td>
+                    <td>
+                        {{user.gender}}
+                    </td>
+                    <td>
+                        {{user.email}}
+                    </td>
+                    <td>
+                       {{user.phone}}
+                    </td>
+                    <td>
+                        {{user.birthDate}}
+                    </td>
+                    <td>
+                      <img [src]="user.image" [alt]="user.firstName" class="userImg">
+                    </td>
+                    <td>
+                       <button class="btn btn btn-warning">Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn btn-info">View Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

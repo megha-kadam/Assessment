@@ -1,0 +1,49 @@
+<div class="row">
+
+  <div class="col-12">
+    <div class="dashboard-profile-card">
+  <div class="card-background">
+    
+    <div class="card-header">
+      <h1 class="welcome-message">WELCOME, {{profileObj.firstName | uppercase}} {{profileObj.lastName | uppercase}} !</h1>
+      <button mat-icon-button class="settings-button">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+
+    <div class="card-content">
+      
+      <div class="details-left">
+        <div class="detail-group">
+          <p class="detail-label">Test Team</p>
+          <h4 class="detail-value">6666666666</h4> 
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Sales Person</p>
+          <h4 class="detail-value">Sales person name</h4> 
+        </div>
+      </div>
+      
+      <div class="details-right">
+        <div class="detail-group">
+          <p class="detail-label">E-mail</p>
+          <h4 class="detail-value">{{profileObj.email}}</h4>
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Contact Number</p>
+          <h4 class="detail-value">0000000000</h4> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="profile-image-container">
+      <img [src]="profileObj.image" alt="User Profile" class="profile-picture"/>
+    </div>
+
+    <div class="bg-shape circle-1"></div>
+    <div class="bg-shape circle-2"></div>
+    <div class="bg-shape circle-3"></div>
+  </div>
+</div>
+  </div>
+</div>

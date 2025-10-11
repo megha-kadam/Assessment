@@ -1,0 +1,62 @@
+/* 1. Set the container height to fill the viewport 
+  and ensure the body/html don't have unwanted margins/padding
+*/
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.app-sidebar-container {
+  height: 100%; /* Make the container fill the host */
+}
+
+/* 2. Style the sidebar itself 
+*/
+.app-sidebar {
+  width: 250px; /* Set a fixed width */
+  padding: 10px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 8px;
+}
+
+.sidebar-logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+/* 3. Style the main content area 
+*/
+.app-main-content {
+  /* This ensures the main content (including the toolbar) starts next to the sidebar */
+  display: flex;
+  flex-direction: column; 
+}
+
+.app-toolbar {
+  /* Ensure the toolbar sits correctly at the top */
+  position: sticky; 
+  top: 0;
+  z-index: 10;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* 4. The actual page content area that holds the <router-outlet> 
+  This is the part that should scroll if the page content is too long.
+*/
+.page-view {
+  flex-grow: 1; /* Allow it to take up all remaining vertical space */
+  overflow-y: auto; /* Enable scrolling for the content area */
+  padding: 24px;
+  background-color: #f4f6f9; /* Light background for the content area */
+}

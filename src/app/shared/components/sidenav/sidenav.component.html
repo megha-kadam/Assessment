@@ -1,0 +1,47 @@
+<mat-sidenav-container class="app-sidenav-container" >
+  
+  <mat-sidenav mode="side" opened class="app-sidenav">
+    
+    <div class="sidebar-header">
+        <img src="../../../../assets/logo.png" alt="App Logo" class="sidebar-logo"/>
+        
+    </div>
+
+    <mat-nav-list class="main-nav-list">
+        <a mat-list-item routerLink="dashboard" routerLinkActive="active-link">
+            <mat-icon>dashboard</mat-icon> Dashboard
+        </a>
+        <a mat-list-item routerLink="/users" routerLinkActive="active-link">
+            <mat-icon>person</mat-icon> User Page
+        </a>
+        <a mat-list-item routerLink="/products" routerLinkActive="active-link">
+            <mat-icon>inventory_2</mat-icon> Product Page
+        </a>
+    </mat-nav-list>
+
+    <div class="bottom-section mb-5">
+      
+        <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>settings</mat-icon> Setting
+      </button>
+        
+        <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>help</mat-icon> Help
+      </button>
+    
+        <button mat-icon-button color="primary" (click)="onLogOut()" aria-label="Example icon button with a menu icon">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="app-main-content">
+   
+    
+    <div class="page-view">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
