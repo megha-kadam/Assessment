@@ -13,11 +13,13 @@ import { LoaderService } from '../services/loader.service';
 export class AuthInterceptor implements HttpInterceptor {
 
 token !: any
-loader = inject(LoaderService);
+private loader = inject(LoaderService);
+
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler) : Observable<HttpEvent<unknown>> {
-    if (request.url.includes('auth/login')) {
-      this.loader.loaderEmitter(true)
+    this.loader.loaderEmitter(true);
+
+    if (request.url.includes('auth/login')) {  
     return next.handle(request)
     .pipe(
       finalize(() => {
@@ -34,7 +36,7 @@ this.token  = localStorage.getItem('token')
     }
    })
 
-   this.loader.loaderEmitter(true);
+  //  this.loader.loaderEmitter(true);
   return next.handle(reqClone)
   .pipe(
     finalize(() => {
