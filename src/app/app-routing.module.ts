@@ -27,11 +27,12 @@ const routes: Routes = [
       
     ]
   },
-  
+      
   {
     path : 'products',
     component : ProductComponent,
     title : 'Product',
+    canActivate : [AuthGuard],
     resolve : {
       products : ProductResolver
     }
@@ -40,6 +41,7 @@ const routes: Routes = [
     path : 'users',
     component : UserComponent,
     title : 'Users',
+    canActivate : [AuthGuard],
     resolve : {
       users : UserResolver
     }

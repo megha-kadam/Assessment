@@ -3,6 +3,8 @@ import { AuthService } from '../../services/auth.service';
 import { ILoginResponse } from '../../models/auth';
 import { SnackbarService } from '../../services/snackbar.service';
 import { JsonPipe } from '@angular/common';
+import { ProfileService } from '../../services/profile.service';
+import { Iprofile } from '../../models/profile';
 
 @Component({
   selector: 'app-profile',
@@ -10,23 +12,27 @@ import { JsonPipe } from '@angular/common';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  profileObj !: any
+  profileObj !: Iprofile;
   constructor(
         private authService : AuthService, 
-        private snackbar : SnackbarService) { }
+        private snackbar : SnackbarService,
+      private profile : ProfileService) { }
 
   getProfileObj(){
- let profile = localStorage.getItem('profile')
-    this.profileObj = JSON.parse(profile!)
-    console.log(this.profileObj)
-    
-    
+this.profile.fetchProfile()
+.subscribe({
+  next : (res) => {
+    console.log(res);
+    this.profileObj = res;
+  },
+  error : err => this.snackbar.openSnackbar(err)
+  
+})
+
   }
 
   ngOnInit(): void {
-    this.getProfileObj(); 
-
-
+    this.getProfileObj();
   }
 
 }

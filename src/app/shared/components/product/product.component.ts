@@ -51,12 +51,12 @@ export class ProductComponent implements OnInit {
   }
 
 
-  filterProduct(searchText: string) {
-    if (!searchText) {
-      this.productFilter = [...this.products]; // reset
+  filterProduct(searchVal: string) {
+    if (!searchVal) {
+      this.productFilter = [...this.products]; 
       return;
     }
-    const lowerText = searchText.toLowerCase();
+    const lowerText = searchVal.toLowerCase();
 
     this.productFilter = this.products.filter(product =>
       product.title.toLowerCase().includes(lowerText) 

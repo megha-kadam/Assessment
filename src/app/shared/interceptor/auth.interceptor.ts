@@ -30,7 +30,7 @@ this.token  = localStorage.getItem('token');
 
     let reqClone = request.clone({
     setHeaders : {
-      'auth' : this.token,
+      'authorization' : this.token,
       'Content-Type' : 'application/json'
     }
    })

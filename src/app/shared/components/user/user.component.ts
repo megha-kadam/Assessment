@@ -51,12 +51,12 @@ export class UserComponent implements OnInit {
     
   }
 
-  filterUsers(searchText: string) {
-    if (!searchText) {
-      this.filteredUsers = [...this.users]; // reset
+  filterUsers(searchVal: string) {
+    if (!searchVal) {
+      this.filteredUsers = [...this.users]; 
       return;
     }
-    const lowerText = searchText.toLowerCase();
+    const lowerText = searchVal.toLowerCase();
 
     this.filteredUsers = this.users.filter(user =>
       user.firstName.toLowerCase().includes(lowerText) ||
