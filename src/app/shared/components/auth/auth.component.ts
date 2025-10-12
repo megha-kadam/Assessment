@@ -14,7 +14,6 @@ import { ILoginResponse } from '../../models/auth';
 export class AuthComponent implements OnInit {
 
   allreadyHasAccount : boolean = true;
-  //userInfo !: Idata;
   showHide : boolean = true;
 
   logInForm !: FormGroup;
@@ -28,7 +27,7 @@ export class AuthComponent implements OnInit {
 
   createLogInForm(){
     this.logInForm = new FormGroup({
-      username : new FormControl(null, [Validators.required]),
+      username : new FormControl(null, [Validators.required, Validators.pattern(CustomRegex.username)]),
       password : new FormControl(null, [Validators.required])
     })
   }
@@ -43,7 +42,7 @@ export class AuthComponent implements OnInit {
 
   createSignupForm(){
     this.signUpForm = new FormGroup({
-      username : new FormControl(null, [Validators.required]),
+      username : new FormControl(null, [Validators.required, Validators.pattern(CustomRegex.username)]),
       password : new FormControl(null, [Validators.required])
     })
   }

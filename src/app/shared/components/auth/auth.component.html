@@ -1,7 +1,11 @@
 <main class="main">
     <mat-card *ngIf="allreadyHasAccount" class="card">
-        <h2 class="loginHead">welcome back</h2>
-        <p class="text-center">Please login to your account</p>
+        <div class="sidebar-header">
+            <img src="../../../../assets/logo.png" alt="App Logo" class="sidebar-logo" />
+
+        </div>
+        <h2 class="loginHead m-0">welcome back</h2>
+        <p class="text-center m-0">Please login to your account</p>
 
         <div class="card-body">
             <form [formGroup]="logInForm" (ngSubmit)="onLogIn()">
@@ -14,7 +18,7 @@
                     </strong>
 
                     <strong class="text-danger" *ngIf="l['username'].dirty && l['username'].hasError('pattern')">
-                        Please enter a valid UserName address!
+                        UserName should include characters only!
                     </strong>
                 </div>
                 <div class="form-group passwordIcon">
@@ -31,13 +35,13 @@
                 </div>
 
 
-        
+
                 <div class="text-center primary-btn">
                     <button mat-raised-button class="btn-sm btn btn-primary">
-                     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"  >
-                        <mat-icon>login</mat-icon>
-                    </button>
-                    Log In</button>
+                        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                            <mat-icon>login</mat-icon>
+                        </button>
+                        Log In</button>
                 </div>
 
             </form>
@@ -47,8 +51,11 @@
     </mat-card>
 
     <mat-card class="card" *ngIf="!allreadyHasAccount">
+        <div class="sidebar-header">
+            <img src="../../../../assets/logo.png" alt="App Logo" class="sidebar-logo" />
 
-        <h2>Sign Up</h2>
+        </div>
+        <h2 class="m-0">Sign Up</h2>
         <div class="card-body">
             <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
                 <div class="form-group">
@@ -59,7 +66,7 @@
                     </strong>
 
                     <strong class="text-danger" *ngIf="s['username'].dirty && s['username'].hasError('pattern')">
-                        Please enter a valid UserName address!
+                        UserName should include characters onlY!
                     </strong>
                 </div>
                 <div class="form-group passwordIcon">
@@ -76,9 +83,9 @@
 
 
                 </div>
-                 <div class="text-center primary-btn">
+                <div class="text-center primary-btn">
                     <button mat-raised-button class="btn-sm btn btn-primary">
-                    Sign Up</button>
+                        Sign Up</button>
                 </div>
             </form>
             <a href="javascript:;" (click)="allreadyHasAccount = true" class="msg">Already have account</a>
