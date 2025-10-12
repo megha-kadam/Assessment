@@ -13,7 +13,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 import { UserComponent } from './shared/components/user/user.component';
 import { ProductComponent } from './shared/components/product/product.component';
-import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 
 import { ProfileComponent } from './shared/components/profile/profile.component';
@@ -28,7 +27,6 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     AuthComponent,
     UserComponent,
     ProductComponent,
-    DashboardComponent,
     SidenavComponent,
     ProfileComponent,
     LoaderComponent,

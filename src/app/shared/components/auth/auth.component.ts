@@ -60,7 +60,7 @@ export class AuthComponent implements OnInit {
        this.authService.profileEmitter(res);
     
         
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/profile']);
         this.snackbar.openSnackbar('Login successfully');
       },
       error : err => {

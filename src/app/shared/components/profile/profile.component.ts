@@ -5,6 +5,7 @@ import { SnackbarService } from '../../services/snackbar.service';
 import { JsonPipe } from '@angular/common';
 import { ProfileService } from '../../services/profile.service';
 import { Iprofile } from '../../models/profile';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -16,23 +17,25 @@ export class ProfileComponent implements OnInit {
   constructor(
         private authService : AuthService, 
         private snackbar : SnackbarService,
-      private profile : ProfileService) { }
+      private profile : ProfileService,
+    private route : ActivatedRoute) { 
+        this.profileObj = this.route.snapshot.data['profile']
+      }
 
-  getProfileObj(){
-this.profile.fetchProfile()
-.subscribe({
-  next : (res) => {
-    console.log(res);
-    this.profileObj = res;
-  },
-  error : err => this.snackbar.openSnackbar(err)
+//   getProfileObj(){
+// this.profile.fetchProfile()
+// .subscribe({
+//   next : (res) => {
+//     this.profileObj = res;
+//   },
+//   error : err => this.snackbar.openSnackbar(err)
   
-})
+// })
 
-  }
+//   }
 
   ngOnInit(): void {
-    this.getProfileObj();
+    //this.getProfileObj();
   }
 
 }
