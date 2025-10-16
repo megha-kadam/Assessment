@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
       let token = this.authService.getToken();
       if(token){
          if (state.url === '/' || state.url === '') {
-        return this.router.createUrlTree(['/dashboard']);
+        return this.router.createUrlTree(['/profile']);
       }
         return true
       }else{
